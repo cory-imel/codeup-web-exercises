@@ -5,6 +5,23 @@ comment
 */
 
 .fancy-header {
-    color: blue; /* single line comment */
+    text-align: center;
+}
+
+h2 {
+    color: chartreuse;
     text-decoration: underline;
+}
+
+body{
+    /*background-color: darkgrey;*/
+    background-image: url(../images/large.png);
+    /*background-repeat:no-repeat;*/
+    /*background-position: center center;*/
+    background-size: 100%;
+    font-family: sans-serif;
+}
+
+li {
+    list-style: decimal;
 }
