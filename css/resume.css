@@ -1,0 +1,31 @@
+body {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.resumeHeadline {
+    font-size: 20pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+.resumeContent{
+    font-size: 10pt;
+}
+
+.resumeContentHeader{
+    font-weight: bold;
+    font-size: 11pt;
+}
+
+.resumeContentHeaderDate{
+    font-weight: bold;
+    text-align: right;
+}
+
+.inlineBlock li{
+    display:inline-block;
+}
+
+.center{
+    text-align: center;
+}
