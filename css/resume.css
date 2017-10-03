@@ -1,5 +1,6 @@
 body {
     font-family: 'Cormorant Garamond', serif;
+    margin: 10px;
 }
 
 .resumeHeadline {
@@ -12,18 +13,40 @@ body {
     font-size: 10pt;
 }
 
-.resumeContentHeader{
+.sectionHeader{
     font-weight: bold;
     font-size: 11pt;
+    margin-bottom: 10px;
 }
 
-.resumeContentHeaderDate{
+.contentHeader{
     font-weight: bold;
-    text-align: right;
+    font-size: 10pt;
+}
+.proExperienceDate{
+    font-weight: bold;
+    float: right;
 }
 
 .inlineBlock li{
     display:inline-block;
+}
+
+.left{
+    text-align: left;
+    padding-left: 0;
+}
+
+.alignLeft{
+    text-align: left;
+    padding-left: 15px;
+}
+.noPaddingLeft{
+    padding-left: 0;
+}
+
+.eduContent{
+    margin-top: 5px;
 }
 
 .center{
