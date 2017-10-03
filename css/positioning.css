@@ -1,0 +1,51 @@
+h1 {
+    margin-bottom: 0;
+}
+.box{
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    color: white;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-right: 50px;
+    float: left;
+}
+
+.arrow{
+    position: relative;
+    bottom: 38px;
+    left: 50px;
+}
+
+.text{
+    position: relative;
+    bottom: 50px;
+    left: 10px;
+}
+
+.nowrap{
+    white-space: nowrap;
+}
+
+.red {
+    background-color: red;
+}
+.orange {
+    background-color: orange;
+}
+.yellow {
+    background-color: yellow;
+}
+.green {
+    background-color: green;
+    clear: left;
+}
+.blue {
+    background-color: blue;
+}
+.violet {
+    background-color: violet;
+}
