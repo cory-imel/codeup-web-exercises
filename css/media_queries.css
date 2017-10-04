@@ -78,12 +78,12 @@ h1 {
     }
 
     .main {
-        float: left;
+        /*float: left;*/
         /*width: 66%;*/
     }
     .sub-section {
         font-style: normal;
-        float: right;
+        /*float: right;*/
         /*width: 33%;*/
     }
 
