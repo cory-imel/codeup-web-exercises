@@ -37,10 +37,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     </ul>
-                </li>
-            </ul>
         </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
 </nav>
 
 <div class="jumbotron hidden-xs">
@@ -54,7 +51,7 @@
     <li role="presentation"><a href="#cheese_sauce"><span class="badge">2</span> Cheese and Sauce</a></li>
     <li role="presentation"><a href="#toppings"><span class="badge">3</span> Toppings</a></li>
 </ul>
-
+<form action="https://requestb.in/1lhae0l1" method="post">
 <div id="size_crust" class="panel panel-info">
     <div class="panel-heading">Choose Size and Crust</div>
     <br>
@@ -66,7 +63,7 @@
                     <li class=" list-group-item list-group-item-info">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="garlic_small" id="garlic_small" value="garlic_small">
+                                <input type="radio" name="crust" id="garlic_small" value="garlic_small" checked>
                                 Small (10")
                             </label>
                         </div>
@@ -74,7 +71,7 @@
                     <li class=" list-group-item list-group-item-info">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="garlic_medium" id="garlic_med" value="garlic_med">
+                                <input type="radio" name="crust" id="garlic_med" value="garlic_med">
                                 Medium (12")
                             </label>
                         </div>
@@ -90,7 +87,7 @@
                 <li class=" list-group-item list-group-item-info">
                     <div class="radio">
                         <label>
-                            <input type="radio" name="crunchy_med" id="crunchy_med" value="crunchy_med">
+                            <input type="radio" name="rust" id="crunchy_med" value="crunchy_med">
                             Medium (12")
                         </label>
                     </div>
@@ -98,7 +95,7 @@
                 <li class=" list-group-item list-group-item-info">
                     <div class="radio">
                         <label>
-                            <input type="radio" name="crunchy_large" id="crunchy_large" value="crunchy_large">
+                            <input type="radio" name="crust" id="crunchy_large" value="crunchy_large">
                             Large (14")
                         </label>
                     </div>
@@ -106,9 +103,8 @@
             </ul>
         </div>
     </div>
-    <div class="panel-footer"><div class="text-right"><a href="#cheese_sauce" class="btn btn-primary " role="button">Next Section<div class="glyphicon glyphicon-triangle-right"></div></a></div></div>
+    <div class="panel-footer"><div class="text-right"><a href="#cheese_sauce" class="btn btn-primary " role="button">Next Section<span class="glyphicon glyphicon-triangle-right"></span></a></div></div>
 </div>
-<form action="https://requestb.in/1lhae0l1" method="post">
 <div id="cheese_sauce" class="panel panel-info">
 <div class="panel-heading">Choose Cheese and Sauce</div>
 <br>
@@ -155,8 +151,8 @@
     <div class="panel-footer">
         <div class="text-right">
             <div class="btn-group">
-            <a href="#size_crust" class="btn btn-primary " role="button"> <div class="glyphicon glyphicon-triangle-left"></div>Previous Section</a>
-                <a href="#toppings" class="btn btn-primary " role="button">Next Section<div class="glyphicon glyphicon-triangle-right"></div></a>
+            <a href="#size_crust" class="btn btn-primary " role="button"> <span class="glyphicon glyphicon-triangle-left"></span>Previous Section</a>
+                <a href="#toppings" class="btn btn-primary " role="button">Next Section<span class="glyphicon glyphicon-triangle-right"></span></a>
             </div>
         </div>
     </div>
@@ -197,19 +193,23 @@
             <div id="non-meats" class="panel-heading">Choose Non-Meats</div>
             <ul class="list-group">
                 <li class=" list-group-item list-group-item-info">
-                    <input type="checkbox"  name="nonmeat[]" value="g_pepper">
+                    <label for="g_pepper"></label>
+                    <input type="checkbox" id="g_pepper" name="nonmeat[]" value="g_pepper">
                     Green Peppers
                 </li>
                 <li class=" list-group-item list-group-item-info">
-                    <input type="checkbox"  name="nonmeat[]" value="mushroom">
+                    <label for="mushroom"></label>
+                    <input type="checkbox" id="mushroom" name="nonmeat[]" value="mushroom">
                     Mushrooms
                 </li>
                 <li class=" list-group-item list-group-item-info">
-                    <input type="checkbox"  name="nonmeat[]" value="onion">
+                    <label for="onion"></label>
+                    <input type="checkbox" id="onion" name="nonmeat[]" value="onion">
                     Onions
                 </li>
                 <li class=" list-group-item list-group-item-info">
-                    <input type="checkbox"  name="nonmeat[]" value="j_pepper">
+                    <label for="j_pepper"></label>
+                    <input type="checkbox" id="j_pepper" name="nonmeat[]" value="j_pepper">
                     Jalapeno Peppers
                 </li>
             </ul>
@@ -217,7 +217,7 @@
     </div>
     <div class="panel-footer">
         <div class="text-right">
-            <button type="submit" class="btn btn-primary">Checkout <div class="glyphicon glyphicon-shopping-cart"></div></button>
+            <button type="submit" class="btn btn-primary">Checkout <span class="glyphicon glyphicon-shopping-cart"></span></button>
         </div>
     </div>
 </div>
