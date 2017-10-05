@@ -108,7 +108,7 @@
     </div>
     <div class="panel-footer"><div class="text-right"><a href="#cheese_sauce" class="btn btn-primary " role="button">Next Section<div class="glyphicon glyphicon-triangle-right"></div></a></div></div>
 </div>
-
+<form action="https://requestb.in/1lhae0l1" method="post">
 <div id="cheese_sauce" class="panel panel-info">
 <div class="panel-heading">Choose Cheese and Sauce</div>
 <br>
@@ -117,7 +117,8 @@
         <div class="panel-heading">Cheese</div>
         <ul class="list-group">
             <li class=" list-group-item list-group-item-info">Cheese
-                <select name="cheese_amt" class="form-control">
+                <label for="cheese_amt"></label>
+                <select id="cheese_amt" name="cheese_amt" class="form-control">
                     <option value="light">Light</option>
                     <option value="normal" selected="selected">Normal</option>
                     <option value="extra">Extra</option>
@@ -132,7 +133,8 @@
             <div class="panel-heading">Sauce</div>
             <ul class="list-group">
                 <li class=" list-group-item list-group-item-info">Sauce
-                    <select name="sauce" class="form-control">
+                    <label for="sauce"></label>
+                    <select id="sauce" name="sauce" class="form-control">
                         <option value="tomato">Tomato Sauce</option>
                         <option value="marinara">Marinara Sauce</option>
                         <option value="bbq">BBQ</option>
@@ -140,7 +142,8 @@
                     </select>
                 </li>
                 <li class=" list-group-item list-group-item-info">How  Much?
-                    <select name="sauce_amt" class="form-control">
+                    <label for="sauce_amt"></label>
+                    <select id="sauce_amt" name="sauce_amt" class="form-control">
                         <option value="light">Light</option>
                         <option value="normal" selected="selected">Normal</option>
                         <option value="extra">Extra</option>
@@ -159,10 +162,67 @@
     </div>
 </div>
 
-
-
+<div id="toppings" class="panel panel-info">
+    <div class="panel-heading">Choose Toppings</div>
+    <br>
+    <div class="container-fluid panel panel-group">
+        <div class="panel panel-default">
+            <div id="meats" class="panel-heading">Choose Meats</div>
+            <ul class="list-group">
+                <li class=" list-group-item list-group-item-info">
+                    <label for="beef"></label>
+                    <input type="checkbox" id="beef" name="meat[]" value="beef">
+                    Beef
+                </li>
+                <li class=" list-group-item list-group-item-info">
+                    <label for="ham"></label>
+                    <input type="checkbox" id="ham" name="meat[]" value="ham">
+                    Ham
+                </li>
+                <li class=" list-group-item list-group-item-info">
+                    <label for="philly"></label>
+                    <input type="checkbox" id="philly" name="meat[]" value="philly">
+                    Philly Steak
+                </li>
+                <li class=" list-group-item list-group-item-info">
+                    <label for="bacon"></label>
+                    <input type="checkbox" id="bacon" name="meat[]" value="bacon">
+                    Bacon
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid panel panel-group">
+        <div class="panel panel-default">
+            <div id="non-meats" class="panel-heading">Choose Non-Meats</div>
+            <ul class="list-group">
+                <li class=" list-group-item list-group-item-info">
+                    <input type="checkbox"  name="nonmeat[]" value="g_pepper">
+                    Green Peppers
+                </li>
+                <li class=" list-group-item list-group-item-info">
+                    <input type="checkbox"  name="nonmeat[]" value="mushroom">
+                    Mushrooms
+                </li>
+                <li class=" list-group-item list-group-item-info">
+                    <input type="checkbox"  name="nonmeat[]" value="onion">
+                    Onions
+                </li>
+                <li class=" list-group-item list-group-item-info">
+                    <input type="checkbox"  name="nonmeat[]" value="j_pepper">
+                    Jalapeno Peppers
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary">Checkout <div class="glyphicon glyphicon-shopping-cart"></div></button>
+        </div>
+    </div>
+</div>
 <script src="js/jquery-2.2.4.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-
+</form>
 </body>
 </html>
