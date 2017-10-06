@@ -10,4 +10,10 @@
 }
 label{
     font-weight: normal;
+    display: block;
+}
+
+input {
+    float: left;
+    margin-right: 1%;
 }
