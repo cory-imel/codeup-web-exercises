@@ -1,3 +1,4 @@
+"use strict";
 console.log('Hello from External JavaScript!');
 
 alert('Welcome to my Website!');
