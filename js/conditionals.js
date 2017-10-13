@@ -206,8 +206,11 @@ var luckyNumber = Math.floor(Math.random() * 6);
 function promotionDialog() {
 
      var bill = prompt("What was you total bill?");
-     bill = parseFloat(bill).toFixed(2);
-     alert("Your lucky number is " + luckyNumber + ", your price before the discount was $" + bill + ", and your price after the discount is $" + calculateTotal(luckyNumber,bill).toFixed(2));
+     bill = parseFloat(bill);
+    if (!isNaN(bill)) {
+        bill = bill.toFixed(2);
+        alert("Your lucky number is " + luckyNumber + ", your price before the discount was $" + bill + ", and your price after the discount is $" + calculateTotal(luckyNumber,bill).toFixed(2));
+    }
 
 }
 
