@@ -62,7 +62,7 @@
 
         function isTwo (random) {
 
-        return random % 2 === 0;
+        return random === 2;
 
         }
 
@@ -157,7 +157,8 @@
 
             function isNumeric(input) {
 
-                return typeof input == "number";
+                return !isNan(input);
+                // return typeof input == "number";
 
             }
 
