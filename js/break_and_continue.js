@@ -28,10 +28,9 @@ function getUsersNumber() {
     while(!valid) {
 
         userInput = prompt("Please provide an odd number between 1 and 50.");
-        userInput = parseInt(userInput);
+        userInput = parsevar(userInput);
 
         valid = !(isNaN(userInput)) && !(userInput % 2 === 0) && !(userInput > 50);
-
 
             if (valid){
                 break;
@@ -41,6 +40,66 @@ function getUsersNumber() {
     oddOutput(userInput);
 }
 
-getUsersNumber();
+//getUsersNumber();
 
+
+function diamond(width) {
+
+    var output = "";
+
+
+    for (var i = 0; i < width - 1; i++)
+    {
+        for (var j = 0; j < (width - i); j++) {
+            output += " ";
+        }
+        for (j = 1; j <= i; j++) {
+            output += "*";
+        }
+        for (var k = 1; k < i; k++) {
+            output += "*";
+        }
+        output += "\n";
+    }
+
+    for (i = width - 1 ; i >= 1; i--)
+    {
+        for (j = 0; j < (width - i); j++) {
+            output += " ";
+        }
+        for (j = 1; j <= i; j++) {
+            output += "*";
+        }
+        for (k = 1; k < i; k++) {
+            output += "*";
+        }
+        output += "\n"
+    }
+
+console.log(output);
+
+}
+
+
+function fizzBuzz() {
+
+    for (var i = 1; i <= 100; i++){
+
+        if (i % 3 === 0 && i % 5 === 0){
+            console.log("FizzBuzz");
+        } else if (i % 3 === 0){
+            console.log("Fizz");
+        } else if (i % 5 === 0){
+            console.log("Buzz");
+        } else {
+            console.log(i);
+        }
+
+    }
+
+}
+
+fizzBuzz();
+diamond(7);
 } )()
+
