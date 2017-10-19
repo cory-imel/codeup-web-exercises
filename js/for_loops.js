@@ -3,7 +3,6 @@
 
 function showMultiplicationTable(number) {
 
-    console.log("test");
     for (var i = 1; i <= 10; i++){
         console.log(number + " x " + i +  " = " + (number * i));
     }
@@ -13,16 +12,11 @@ function showMultiplicationTable(number) {
 showMultiplicationTable(7);
 
 
-function randomNumber() {
-
-    return Math.floor(Math.random() * 180) + 20;
-
-}
-
 function evenOdd() {
 
     for (var i = 1; i <= 10; i++){
-        var currentNumber = randomNumber();
+
+        var currentNumber = Math.floor(Math.random() * (180 - 20 + 1)) + 20;
 
         if (currentNumber % 2 === 0){
             console.log(currentNumber + " is even");

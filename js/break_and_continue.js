@@ -112,7 +112,7 @@ function multiplicationTable() {
 
               if ((i* j) < 10 ){
                   output += "   ";
-              }else if ( (i*j) < 100) {
+              }else if ((i*j) < 100) {
                   output += "  ";
               }else {
                   output += " ";
