@@ -58,11 +58,11 @@
 
             if (shopper.amount > 200) {
 
-                console.log( name + subtotal + discount + total);
+                // console.log( name + subtotal + discount + total);
 
             } else {
 
-                console.log(name + subtotal + " - Discount: $0.00 " + " - Total: $" + shopper.amount);
+                // console.log(name + subtotal + " - Discount: $0.00 " + " - Total: $" + shopper.amount);
             }
         }
 
@@ -171,7 +171,7 @@
         var authorObj = {fistName:authorArr[0], lastName:authorArr[1]};
         var bookObj = {title:booktitle, author:authorObj};
 
-        showBookInfo(bookObj);
+        // showBookInfo(bookObj);
 
     }
 
@@ -184,7 +184,7 @@
 
     }
 
-    createBook("Stuff","Some Dude");
+    // createBook("Stuff","Some Dude");
 
 
 //
@@ -203,6 +203,29 @@
 //     vaccinate() - takes in an argument for the name of the shot and adds a new shot with the current date to the shotRecords array
 //
 //
+    var dog = {};
+
+    dog.breed = "Lab";
+    dog.weightInPounds = 100;
+    dog.age = 5;
+    dog.color ="brown";
+    dog.sterilized = false;
+    dog.shotRecords = [{date:"Fri Oct 20 2017", vaccine:"rabies"}];
+    dog.bark = function () {
+                    console.log("Woof!");
+                };
+    dog.getOlder = function () {
+                    this.age += 1;
+                    };
+    dog.fix = function () {
+                    this.sterilized = true;
+                };
+    dog.vaccinate = function (vaccine) {
+                        var d =  new Date();
+                        this.shotRecords[this.shotRecords.length] = {date:d.toDateString(),vaccine:vaccine};
+                    };
+
+
 // BONUS 2 (expanding on the books object exercise):
 //     Add a property “keywords” that contains an array of possible genres the book may be categorized by
 //     Add a boolean property “available” and set it to true
