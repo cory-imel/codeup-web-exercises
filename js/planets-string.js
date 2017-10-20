@@ -95,6 +95,6 @@
             }
     }
 
-console.log(twelveToTwentyFour('1:00pm'));
+console.log(twelveToTwentyFour('1:00am'));
 
 })();
