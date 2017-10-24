@@ -16,7 +16,6 @@
         inputStore.push(1);
         console.log(inputStore);
         updateWindow();
-
     }, false);
     document.getElementById("2").addEventListener('click', function () {
         inputStore.push(2);
@@ -84,7 +83,7 @@
     function updateWindow() {
         if (inputStore.length === 0){
             document.getElementById("window").innerHTML = textArea;
-        }else if (!current.length === null){
+        }else if (!(current.length === 0)){
             document.getElementById("window").innerHTML = current;
         }else {
             document.getElementById("window").innerHTML = inputStore[inputStore.length - 1];
