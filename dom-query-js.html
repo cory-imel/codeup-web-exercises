@@ -52,9 +52,8 @@
 
         // TODO: Uncomment the next line and get all list items
         function everOtherGrey() {
-            var i = 0;
             var listItems = document.getElementsByTagName("li");
-            for (i = 0; i < listItems.length; i++){
+            for (var i = 0; i < listItems.length; i++){
                 var dbId = listItems[i].getAttribute("data-dbid");
                 if (!(i % 2 === 0)){
                     listItems[i].style.color = "#848484";
