@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .invisible{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<dl>
+    <dt>Big Bend</dt>
+    <dd class="invisible">Awesome</dd>
+    <dt>Grand Canyon</dt>
+    <dd class="invisible">HUUGE</dd>
+    <dt>Yellow Stone</dt>
+    <dd class="invisible">Explodey</dd>
+    <dt>Sequoia</dt>
+    <dd class="invisible">Tall</dd>
+    <dt>Denali</dt>
+    <dd class="invisible">Chilly</dd>
+    <dt>Rocky Mountain</dt>
+    <dd class="invisible">Craggy</dd>
+    <dt>Bears Ears</dt>
+    <dd class="invisible">Plateaus</dd>
+    <dt>Hoover Dam</dt>
+    <dd class="invisible">Watery</dd>
+    <dt>Petrified Forrest</dt>
+    <dd class="invisible">Rocky</dd>
+    <dt>Death Valley</dt>
+    <dd class="invisible">Deserty</dd>
+</dl>
+
+<a href="">Show</a>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    $( document ).ready(function() {
+        "use strict";
+
+        $("dt").click(function (e) {
+           $(this).next().css("background", "yellow");
+        });
+
+        $('a').click(function (e) {
+            e.preventDefault();
+            $('.invisible').css("display", "block");
+        });
+
+
+
+    });
+</script>
+</body>
+</html>
