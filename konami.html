@@ -15,7 +15,7 @@
         var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
 
         function compareArrays(array1, array2) {
-            for (var i = 0; i < array1.length; i++) {
+            for (var i = 0; i < array2.length; i++) {
                 if (array1[i] !== array2[i]) {
                     return false
                 }
@@ -27,15 +27,15 @@
 
             input.push(event.keyCode);
 
-            if (input.length === 11 && compareArrays(input, konamiCode)) {
-                console.log('You have added 30 lives!!');
+            if (compareArrays(input, konamiCode)) {
                 $("body").html('<h1>Konami Code</h1>' +
                     '<h1>You have added 30 lives!!!!</h1>' +
                     '<embed src="konami_logo.mp3" hidden="true" autostart="true" loop="false" />');
                 input = [];
             } else if (input.length === 11 && !compareArrays(input, konamiCode)) {
-                console.log('BOOO, Nerd');
                 input = [];
+            }else {
+                $("body").html('<h1>Konami Code</h1>');
             }
             console.log(input);
         });
