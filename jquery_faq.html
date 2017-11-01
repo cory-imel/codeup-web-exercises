@@ -10,6 +10,15 @@
         .invisible{
             display: none;
         }
+
+        .pic{
+            display: inline;
+            float: left;
+        }
+
+        .img-board{
+            border: solid red 5px;
+        }
     </style>
 </head>
 <body>
@@ -36,25 +45,89 @@
     <dd class="invisible">Deserty</dd>
 </dl>
 
+
+<h3 id="national-parks-heading">National Parks</h3>
+<ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+</ul>
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
+<h3>Other Parks</h3>
+<ul id="other-parks">
+    <li>Hoover Dam</li>
+    <li>Death Valley</li>
+    <li>Petrified Forrest</li>
+    <li>Bears Ears</li>
+    <li>Denali</li>
+</ul>
+
+<button id="backgrounds">Switch Background</button>
 <a href="">Show</a>
+<br><br>
+
+<div class="pic" id="left_div">
+    <img class="img-board" id="left_pic" src="http://lorempixel.com/100/100" /> <br>
+    <button id="swap_l">Swap</button>
+</div>
+
+<div class="pic" id="mid_div">
+<img class=img-board id="mid_pic" src="http://lorempixel.com/100/100" /> <br>
+<button id="swap_m">Swap</button>
+</div>
+
+<div class="pic" id="right_div">
+<img class="img-board" id="right_pic" src="http://lorempixel.com/100/100" /> <br>
+<button id="swap_r">Swap</button>
+</div>
+
+
 
 <script src="js/jquery-2.2.4.js"></script>
 <script>
     $( document ).ready(function() {
         "use strict";
 
-        $("dt").click(function (e) {
-           $(this).next().css("background", "yellow");
+        $("#backgrounds").click(function () {
+            $.each($('ul'), function () {
+                $(this).children().last().css("background", "yellow");
+            })
         });
+
+        $("h3").click(function () {
+            $(this).next().children().css("font-weight", "bold");
+        });
+
+        $("li").click(function () {
+            $(this).parent().children().first().css("color", "blue");
+        });
+
+
+        $("dt").click(function (e) {
+           $(e.target).next().css("background", "yellow");
+        });
+
 
         $('a').click(function (e) {
             e.preventDefault();
             $('.invisible').css("display", "block");
         });
 
-
+        $('#swap_l').click(function () {
+            console.log($(this).html());
+        })
 
     });
+
 </script>
 </body>
 </html>
