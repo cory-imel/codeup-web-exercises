@@ -139,7 +139,7 @@
         });
 
         $("h3").click(function () {
-            $('ul').slideDown();
+            $(this).next().slideToggle();
             $(this).next().children().css("font-weight", "bold");
         });
 
