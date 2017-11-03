@@ -1,11 +1,13 @@
 $(document).ready(function() {
     "use strict";
+    var map;
+    var geocodeOut;
 
     $.ajax({
         url: "https://api.openweathermap.org/data/2.5/forecast/daily",
         type: "GET",
         data: {
-            APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
+            APPID: "",
             q: "San Antonio, TX",
             units: "imperial",
             cnt: 3
@@ -16,10 +18,9 @@ $(document).ready(function() {
             $('.loading-indicator').hide();
             $('.row').prepend('<h3>' + data.city.name + '</h3>');
             buildWeatherPanes(data);
-            console.log(data)
         }).fail(function(jqXhr, status, error) {
-
         $('#weather_row').html("There was an error: " + '"' + error + '"');
+        initMap(data.city.name);
     });
 
 
@@ -41,6 +42,10 @@ $(document).ready(function() {
                 $('#weather_row').append(html);
         });
 
+    }
+
+    function initMap(city) {
+        map = new google.maps.Map(document.getElementById('map'), {center: city,zoom: 8});
     }
 
 });
