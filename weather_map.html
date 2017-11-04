@@ -30,14 +30,17 @@
 <div class="container">
     <h1>Weather Application</h1>
 
-    <div id="weather_row" class="well row">
+    <div id="weather-row" class="well row">
         <img src="images/loader.gif" style="display: none; padding-left: 50%" id="loading-indicator" alt="">
         <div id="city"></div>
         <div id="weather"></div>
         <div id="map" style=''></div>
+        <div>
+        <button type="button" id="new-search-btn" class="btn btn-default form-control">Search</button>
+        </div>
     </div>
 
-    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -45,7 +48,7 @@
                     <h4 class="modal-title" id="exampleModalLabel">Please input a location</h4>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form onsubmit="return false">
                         <div class="form-group">
                             <label for="city-name" class="control-label">Location Name:</label>
                             <input type="text" class="form-control" id="city-name">
