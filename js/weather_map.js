@@ -19,22 +19,20 @@ $(document).ready(function() {
 
 
     function setMarker() {
+
         var marker = new google.maps.Marker({
             position: currentLatLng,
             map: map,
             draggable:true
 
         });
-        google.maps.event.addListener(marker, 'dragend', function (event) {
-            marker.setMap(null);
-            hideWeather();
 
+        google.maps.event.addListener(marker, 'dragend', function (event) {
+            $('#loading-indicator').show();
             var newLatLng = {lat: parseFloat(event.latLng.lat()), lng: parseFloat(event.latLng.lng())};
             revserseGeocode(newLatLng);
             currentLatLng = newLatLng;
         });
-
-        return marker;
     }
 
 function getWeather(city) {
@@ -50,11 +48,12 @@ function getWeather(city) {
         }
     }).done(function (data) {
 
-        buildWeatherPanes(data);
+            buildWeatherPanes(data);
+
 
         //Show the weather info
-        $('#city').html('<h3>' + data.city.name + '</h3>').fadeIn(1000);
         $('#loading-indicator').hide();
+        $('#city').html('<h3>' + data.city.name + '</h3>').fadeIn(1000);
         $('#weather').fadeIn(1000);
 
         //Create or re-center the map
@@ -63,8 +62,6 @@ function getWeather(city) {
             firstRun = false;
         }else{
             map.setCenter(currentLatLng);
-            setMarker();
-
         }
 
     }).fail(function (jqXhr, status, error) {
@@ -95,12 +92,6 @@ function getWeather(city) {
         $('#weather').html(html);
     }
 
-    function hideWeather() {
-        $('#loading-indicator').show();
-        $('#city').fadeOut(1000);
-        $('#weather').fadeOut(1000);
-    }
-
     function forwardGeocode(cityStr) {
             geocoder.geocode({address: cityStr}, function (results, status) {
                 if (status === 'OK') {
@@ -129,22 +120,22 @@ function getWeather(city) {
         });
     }
 
-    $('#searchModal').modal();
 
     $('#search-btn').click(function (e) {
         e.preventDefault();
         var inputCity = $('#city-name').val();
-        hideWeather();
+        $('#loading-indicator').show();
         forwardGeocode(inputCity);
+        firstRun = true;
     });
 
     $('#city-name').keyup(function (e) {
         if (e.keyCode === 13){
             var inputCity = $('#city-name').val();
-            hideWeather();
+            $('#loading-indicator').show();
             forwardGeocode(inputCity);
             $('#searchModal').modal('hide');
-
+            firstRun = true;
         }
     });
 
@@ -157,5 +148,5 @@ function getWeather(city) {
     });
 
 $('#loading-indicator').show();
-
+$('#searchModal').modal();
 });
