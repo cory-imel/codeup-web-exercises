@@ -6,17 +6,98 @@ $(document).ready(function() {
     var firstRun = true;
     var geocoder = new google.maps.Geocoder;
 
+
+
     function initMap() {
 
         //Adds map styling in order to keep row height to a minimum before the map exists.
         $('#map').addClass('map-style well');
 
-        map = new google.maps.Map(document.getElementById('map'), {center: currentLatLng,zoom: 8});
+        map = new google.maps.Map(document.getElementById('map'), {center: currentLatLng,zoom: 8,
+            styles: [
+                {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+                {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+                {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+                {
+                    featureType: 'administrative.locality',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#d59563'}]
+                },
+                {
+                    featureType: 'poi',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#d59563'}]
+                },
+                {
+                    featureType: 'poi.park',
+                    elementType: 'geometry',
+                    stylers: [{color: '#263c3f'}]
+                },
+                {
+                    featureType: 'poi.park',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#6b9a76'}]
+                },
+                {
+                    featureType: 'road',
+                    elementType: 'geometry',
+                    stylers: [{color: '#38414e'}]
+                },
+                {
+                    featureType: 'road',
+                    elementType: 'geometry.stroke',
+                    stylers: [{color: '#212a37'}]
+                },
+                {
+                    featureType: 'road',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#9ca5b3'}]
+                },
+                {
+                    featureType: 'road.highway',
+                    elementType: 'geometry',
+                    stylers: [{color: '#746855'}]
+                },
+                {
+                    featureType: 'road.highway',
+                    elementType: 'geometry.stroke',
+                    stylers: [{color: '#1f2835'}]
+                },
+                {
+                    featureType: 'road.highway',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#f3d19c'}]
+                },
+                {
+                    featureType: 'transit',
+                    elementType: 'geometry',
+                    stylers: [{color: '#2f3948'}]
+                },
+                {
+                    featureType: 'transit.station',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#d59563'}]
+                },
+                {
+                    featureType: 'water',
+                    elementType: 'geometry',
+                    stylers: [{color: '#17263c'}]
+                },
+                {
+                    featureType: 'water',
+                    elementType: 'labels.text.fill',
+                    stylers: [{color: '#515c6d'}]
+                },
+                {
+                    featureType: 'water',
+                    elementType: 'labels.text.stroke',
+                    stylers: [{color: '#17263c'}]
+                }
+            ]});
 
         setMarker();
 
     }
-
 
     function setMarker() {
 
@@ -30,32 +111,32 @@ $(document).ready(function() {
         google.maps.event.addListener(marker, 'dragend', function (event) {
             $('#loading-indicator').show();
             var newLatLng = {lat: parseFloat(event.latLng.lat()), lng: parseFloat(event.latLng.lng())};
-            revserseGeocode(newLatLng);
             currentLatLng = newLatLng;
+            getWeather(newLatLng);
         });
     }
 
-function getWeather(city) {
 
+
+    function getWeather(city) {
     $.ajax({
         url: "https://api.openweathermap.org/data/2.5/forecast/daily",
         type: "GET",
         data: {
             APPID: "",
-            q: city,
+            lat: city.lat,
+            lon: city.lng,
             units: "imperial",
             cnt: 3
         }
     }).done(function (data) {
 
-            buildWeatherPanes(data);
-
-
-        //Show the weather info
         $('#loading-indicator').hide();
         $('#city').html('<h3>' + data.city.name + '</h3>');
 
-        //Create or re-center the map
+        buildWeatherPanes(data);
+
+        //Create map or re-center in marker drag case.
         if (firstRun) {
             initMap();
             firstRun = false;
@@ -91,33 +172,22 @@ function getWeather(city) {
         $('#weather').html(html);
     }
 
+
+
     function forwardGeocode(cityStr) {
-            geocoder.geocode({address: cityStr}, function (results, status) {
-                if (status === 'OK') {
-                    currentLatLng = {lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()};
-                    getWeather(results[0].formatted_address);
-                } else {
-                    $('#weather-row').html("Could not find your location: " + status);
-                    setTimeout(function () {
-                        $('#searchModal').modal('show');
-                    }, 2000)
-                }
-            });
-        }
-    
-    
-    function revserseGeocode(latLng) {
-        geocoder.geocode({'location': latLng}, function (results, status) {
+        geocoder.geocode({address: cityStr}, function (results, status) {
             if (status === 'OK') {
-                getWeather(results[0].formatted_address);
+                currentLatLng = {lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()};
+                getWeather(currentLatLng);
             } else {
-                $('#weather-row').html("Geocoding was not successful - STATUS: " + status);
+                $('#weather-row').html("Could not find your location: " + status);
                 setTimeout(function () {
                     $('#searchModal').modal('show');
                 }, 2000)
             }
         });
     }
+
 
 
     $('#search-btn').click(function (e) {
