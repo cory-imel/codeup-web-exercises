@@ -41,7 +41,7 @@ function getWeather(city) {
         url: "https://api.openweathermap.org/data/2.5/forecast/daily",
         type: "GET",
         data: {
-            APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
+            APPID: "",
             q: city,
             units: "imperial",
             cnt: 3
