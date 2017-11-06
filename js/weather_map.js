@@ -41,7 +41,7 @@ function getWeather(city) {
         url: "https://api.openweathermap.org/data/2.5/forecast/daily",
         type: "GET",
         data: {
-            APPID: "",
+            APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
             q: city,
             units: "imperial",
             cnt: 3
@@ -53,8 +53,7 @@ function getWeather(city) {
 
         //Show the weather info
         $('#loading-indicator').hide();
-        $('#city').html('<h3>' + data.city.name + '</h3>').fadeIn(1000);
-        $('#weather').fadeIn(1000);
+        $('#city').html('<h3>' + data.city.name + '</h3>');
 
         //Create or re-center the map
         if (firstRun) {
