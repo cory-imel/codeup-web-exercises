@@ -174,7 +174,7 @@ $(document).ready(function() {
 
 
 
-    function forwardGeocode(cityStr) {
+    function geocoder(cityStr) {
         geocoder.geocode({address: cityStr}, function (results, status) {
             if (status === 'OK') {
                 currentLatLng = {lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()};
@@ -194,7 +194,7 @@ $(document).ready(function() {
         e.preventDefault();
         var inputCity = $('#city-name').val();
         $('#loading-indicator').show();
-        forwardGeocode(inputCity);
+        geocoder(inputCity);
         firstRun = true;
     });
 
@@ -202,14 +202,14 @@ $(document).ready(function() {
         if (e.keyCode === 13){
             var inputCity = $('#city-name').val();
             $('#loading-indicator').show();
-            forwardGeocode(inputCity);
+            geocoder(inputCity);
             $('#searchModal').modal('hide');
             firstRun = true;
         }
     });
 
     $('.close').click(function () {
-        forwardGeocode(city);
+        geocoder(city);
     });
 
     $('#new-search-btn').click(function () {
