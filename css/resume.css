@@ -1,58 +1,77 @@
+
 body {
     font-family: 'Cormorant Garamond', serif;
-    margin: 10px;
+    margin: 3em;
 }
-
+ul {
+    list-style-type: none;
+}
+hr {
+    border-color: black;
+    border-width: .06em;
+    margin-top: .625em;
+    margin-bottom: .625em;
+}
 .resumeHeadline {
-    font-size: 20pt;
     font-weight: bold;
     text-align: center;
+    font-size: 2.5em;
 }
-
-.resumeContent{
-    font-size: 10pt;
-}
-
-.sectionHeader{
-    font-weight: bold;
-    font-size: 11pt;
-    margin-bottom: 10px;
+.sectionHeader {
+    font-size: 1.6em;
     font-weight: bold;
 
 }
+.resumeContent {
+    font-size: 1.2em;
+}
 
-.contentHeader{
+.contentHeader {
     font-weight: bold;
-    font-size: 10pt;
-    font-weight: bold;
+    font-size: 1.4em;
 
 }
-.proExperienceDate{
+.proExperienceDate {
     font-weight: bold;
     float: right;
 }
-
-.inlineBlock li{
-    display:inline-block;
+.inlineBlock li {
+    display: inline-block;
 }
-
-.left{
+.left {
     text-align: left;
     padding-left: 0;
 }
-
-.alignLeft{
+.alignLeft {
     text-align: left;
-    padding-left: 15px;
+    padding-left: .94em;
 }
-.noPaddingLeft{
+.noPaddingLeft {
     padding-left: 0;
 }
 
-.eduContent{
-    margin-top: 5px;
-}
-
-.center{
+.center {
     text-align: center;
+}
+
+@media print {
+    @page {
+        margin: 0;
+        page-break-before: auto;
+    }
+    body {
+        margin: 2em;
+    }
+    .resumeHeadline {
+        font-size: 20pt;
+    }
+    .resumeContent {
+        font-size: 10pt;
+    }
+    .sectionHeader {
+        font-size: 11pt;
+    }
+    .contentHeader {
+        font-size: 10pt;
+    }
 }

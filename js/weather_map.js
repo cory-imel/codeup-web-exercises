@@ -123,7 +123,7 @@ $(document).ready(function() {
         url: "https://api.openweathermap.org/data/2.5/forecast/daily",
         type: "GET",
         data: {
-            APPID: "",
+            APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
             lat: city.lat,
             lon: city.lng,
             units: "imperial",
