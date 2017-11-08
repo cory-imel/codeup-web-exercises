@@ -8,9 +8,13 @@ ul {
 }
 hr {
     border-color: black;
-    border-width: .06em;
-    margin-top: .625em;
-    margin-bottom: .625em;
+    margin-top: .6em;
+    margin-bottom: .6em;
+}
+
+a {
+    color: black;
+    text-decoration: none;
 }
 .resumeHeadline {
     font-weight: bold;
@@ -56,8 +60,8 @@ hr {
 
 @media print {
     @page {
-        margin: 0;
-        page-break-before: auto;
+	margin: 0;
+	page-break-before: auto;
     }
     body {
         margin: 2em;
