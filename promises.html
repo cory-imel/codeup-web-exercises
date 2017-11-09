@@ -16,11 +16,17 @@
 //        wait(1000).then(() => console.log(`You'll see this after 1 second`));
 //        wait(3000).then(() => console.log(`You'll see this after 3 seconds`));
 
-        fetch('https://api.github.com/users/xoxide', {headers: {'Authorization': 'token ffc784dc5a1d54b8b2063560859b2f6b7a65b4d0'}})
-            .then(response => console.log(response.json()));
 
 
+        getGitHubUsersLastCommit = (username) => {
+            fetch(`https://api.github.com/users/${username}/events/public`, {headers: {'Authorization': 'token 02bee2c2618062a2e14c4c589822a0d92b0cdc46'}})
+                .then(response => response.json())
+                .then(events => console.log(events[0].created_at));
+        }
     }
+
+getGitHubUsersLastCommit('xoxide');
+
 </script>
 </body>
 </html>
