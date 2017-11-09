@@ -19,7 +19,8 @@
         getGitHubUsersLastCommit = (username) => {
             fetch(`https://api.github.com/users/${username}/events/public`)
                 .then(response => response.json())
-                .then(events => console.log(events[0].created_at));
+                .then(events => console.log(events[0].created_at))
+                .catch(() => console.log('Something went wrong!'));
         }
     }
 
