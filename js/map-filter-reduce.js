@@ -1,4 +1,5 @@
 {
+    "use strict";
     const users = [
         {
             id: 1,
@@ -32,11 +33,11 @@
         },
     ];
 
-    const threeLang = users.filter(user => user.languages.length === 3);
-    console.log(threeLang);
+    const threeLang = users.filter(user => user.languages.length >= 3);
+    // console.log(threeLang);
 
     const emails = users.map(user => user.email);
-    console.log(emails);
+    // console.log(emails);
 
     const usersObject = users.reduce((usersObj, user)  => {
         usersObj[user.id] = {name: user.name,
@@ -45,5 +46,5 @@
                             };
         return usersObj;
     }, {});
-    console.log(usersObject);
+    // console.log(usersObject);
 }

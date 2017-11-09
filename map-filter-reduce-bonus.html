@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+    <title>Map Filter Reduce</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="#">
+
+</head>
+<body>
+
+<main class="container">
+
+    <h1>Map, Filter, Reduce</h1>
+
+</main>
+
+<!-- jQuery Version 2.2.4 -->
+<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+<!-- Custom JS -->
+<script>
+
+    {
+        "use strict";
+
+        const fruits = ["cantaloupe", "orange", "date", "elderberry", "ugli fruit", "pineapple"];
+
+        const customers = [
+            {
+                name: "Fred",
+                age: 58,
+                occupation: "Police Officer",
+                noOfPurchases: 4
+            },
+            {
+                name: "Samantha",
+                age: 54,
+                occupation: "Teacher",
+                noOfPurchases: 18
+            },
+            {
+                name: "Charles",
+                age: 38,
+                occupation: "Librarian",
+                noOfPurchases: 9
+            }
+        ];
+
+
+        // PROBLEM 1 - create an array of the first letters of each fruit
+
+        const firstLetter = fruits.map(fruit => fruit.charAt(0));
+        console.log(firstLetter);
+
+        // PROBLEM 2 - create array of user objects based on the customers array
+        // of objects (each user object should just have name and age properties)
+//        const usersObj = customers.map(customer => {customer.name,customer.age});
+        const usersObj = customers.map(customer => ({name: customer.name, age: customer.age}));
+        console.log(usersObj);
+        // PROBLEM 3 - create an array of civil servant customers (teachers and police officers)
+        // containing the same properties as the objects on the customers objects
+        const civilServants = customers.filter(customer => customer.occupation === "Teacher" || customer.occupation === "Police Officer");
+        console.log(civilServants);
+
+        // PROBLEM 4 - determine the average age of customers
+        const avergageAge = () => {(customers.length / customers.reduce((sum,customer => sum + customer.age )))};
+
+
+
+
+
+
+
+
+
+
+//            PROBLEM 1 HINT - use .map()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//            PROBLEM 2 HINT - use .map()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//            PROBLEM 3 HINT - use .filter()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//            PROBLEM 4 HINT - use .reduce()
+
+
+
+
+
+
+
+
+
+    }
+
+</script>
+
+</body>
+</html>
