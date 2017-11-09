@@ -33,18 +33,16 @@
         },
     ];
 
-    const threeLang = users.filter(user => user.languages.length >= 3);
-    // console.log(threeLang);
+    const threeLang = users.filter(({languages}) => languages.length >= 3);
+    console.log(threeLang);
 
-    const emails = users.map(user => user.email);
-    // console.log(emails);
+    const emails = users.map(({email}) => email);
+    console.log(emails);
 
-    const usersObject = users.reduce((usersObj, user)  => {
-        usersObj[user.id] = {name: user.name,
-                             email: user.email,
-                             languages: user.languages
-                            };
+    const usersObject = users.reduce((usersObj, {id, name, email, languages})  => {
+        usersObj[id] = {name, email, languages};
         return usersObj;
     }, {});
-    // console.log(usersObject);
+    console.log(usersObject);
 }
+
