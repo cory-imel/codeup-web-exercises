@@ -19,7 +19,7 @@
 
 
         getGitHubUsersLastCommit = (username) => {
-            fetch(`https://api.github.com/users/${username}/events/public`, {headers: {'Authorization': 'token 02bee2c2618062a2e14c4c589822a0d92b0cdc46'}})
+            fetch(`https://api.github.com/users/${username}/events/public`, {headers: {'Authorization': 'token abf99d4703d0debf8bc6b0c0dbc803b60820db32'}})
                 .then(response => response.json())
                 .then(events => console.log(events[0].created_at));
         }
